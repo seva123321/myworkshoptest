@@ -1,0 +1,107 @@
+
+html {
+  /* 10px */
+  font-size: 62.5%;
+}
+
+@media screen and (max-width: 640px) {
+  html {
+    /* 8px */
+    font-size: 50%;
+  }
+}
+@media screen and (max-width: 540px) {
+  html {
+    /* 8px */
+    font-size: 35%;
+  }
+}
+
+
+.wrapper {
+  width: 100%;
+  max-width: 1244px;
+  min-width: 300px;
+  margin: 0 auto;
+  /* padding: 30px; */
+}
+
+.n-decor {
+  text-decoration: none;
+}
+
+.d-none {
+  display: none;
+}
+
+.ul_Dec-none {
+  list-style: none;
+}
+
+.btn {
+  cursor: pointer;
+  user-select: none;
+}
+
+.link {
+  cursor: pointer;
+  user-select: none;
+  transition: 100ms;
+}
+
+.link:hover {
+  transform: scale(1.1);
+}
+
+.link:active {
+  text-decoration: underline;
+}
+
+
+
+
+.h1 {
+  font-size: 7.2rem;
+  letter-spacing: 0.4px;
+  line-height: 6px;
+  text-transform: uppercase;
+  color: var(--colorTxt);
+  font-family: var(--f-family);
+  text-align: center;
+  padding: 2.2px;
+}
+.h2_size {
+  font-size: 3.6rem;
+  letter-spacing: 0.2px;
+  line-height: 3.5rem;
+  text-transform: uppercase;
+  color: var(--colorTxt);
+  font-family: var(--f-family);
+  text-align: center;
+}
+
+.h3_size {
+  font-size: 2.4rem;
+  letter-spacing: 0.1px;
+  line-height: 2.3px;
+  color: var(--colorTxt);
+  font-style: italic;
+  font-family: "Georgia";
+  text-align: center;
+  padding: 1.6px;
+}
+
+.h4_size {
+  font-size: 1.8rem;
+
+}
+
+.h5_size {
+  font-size: 1.6rem;
+
+}
+
+.h6_size {
+  font-size: 1.2rem;
+
+}

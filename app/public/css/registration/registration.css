@@ -1,0 +1,83 @@
+.regForm {
+
+  padding: 0 30px;
+  margin: 30px auto;
+  box-sizing: border-box;
+}
+
+.regForm__wrapper{
+ width: clamp(200px, 100%, 280px);
+}
+
+.regForm__head{
+  font-size: 3.2rem;
+  letter-spacing: 1px;
+  line-height: 4.3rem;
+  text-transform: uppercase;
+  --colorTxtComment: #606060;
+  --f-family: "Myriad Pro";
+  margin: 20px 0;
+}
+
+.regForm_flex {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.regForm__content {
+}
+.regForm__content__pswd {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.regForm__submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 3.4rem auto;
+  width: 14%;
+  min-width: 35px;
+  padding: 2rem 9.8rem;
+  background-color: #f68236;
+  transition: 0.25s;
+  cursor: pointer;
+  border: none;
+}
+.regForm__submit :active {
+  box-shadow: inset 0px 0px 20px 10px rgba(240, 159, 47, 0.6);
+}
+.regForm__submit_txt {
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-align: center;
+  font-family: "Myriad Pro";
+}
+.regForm__submit :hover {
+  background-color: #a44d12;
+}
+
+.regForm__span {
+  font-size: 12px;
+  letter-spacing: 1px;
+  line-height: 4.3rem;
+  text-transform: uppercase;
+  --colorTxtComment: #606060;
+  --f-family: "Myriad Pro";
+}
+.regForm__input {
+  font-size: 1.8rem;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.d-none{
+  display: none;
+}
