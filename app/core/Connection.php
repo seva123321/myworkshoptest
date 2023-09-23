@@ -9,10 +9,10 @@ use PDO,
 abstract class Connection
 {
     //https://server170.hosting.reg.ru/phpmyadmin/index.php
-    private static string $DB_NAME = 'u1877602_shop';
-    private static string $DB_LOGIN = 'u1877602_admin';
-    private static string $DB_PASSWORD = 'u1877602_admin';
-    private static string $DB_HOST = '31.31.196.209';
+    private static string $DB_NAME = 'p651871_shop';
+    private static string $DB_LOGIN = 'p651871_shop';
+    private static string $DB_PASSWORD = 'p651871_admin';
+    private static string $DB_HOST = '46.254.20.38';
 
     public static $db = null;
 

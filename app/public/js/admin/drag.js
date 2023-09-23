@@ -55,17 +55,18 @@ DRAGZONE.addEventListener('drop',function (Event) {
                 // если новый файл уже был в старом массиве
                 if (file.size === oldFile.size ) {
                     add = false
-                })
+                }
+            })
 
             // если файл не найден тогда добавляем в массив
             if (add && T_ALL.includes(getType) && file.size <= MAXSIZE ) {
                 files.push(file);
-            }
-            }
+             }
         })
+        
     } else {
         files = Array.from(Event.dataTransfer.files)
-    }
+      }
         // console.log('files drop' + files);
 
 
