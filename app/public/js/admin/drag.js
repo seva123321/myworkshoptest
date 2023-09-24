@@ -200,7 +200,20 @@ function upload()
         body: data
     })
     .then(Response=>Response.json())
-    .then(data=>console.log(data))
+    .then(data => {
+        console.log(data)
+        if (data.success) {
+            createProduct.reset();
+            files = [];
+            PREVIEW.innerHTML = '';
+            alert('Товар успешно добавлен!')
+        } 
+        else
+        {
+            alert(data.result[0]);
+        }
+
+    })
     .catch(err=>console.warn(err));
 }
 
