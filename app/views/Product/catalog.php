@@ -1,5 +1,5 @@
         <?php
-            include 'app/views/Navigation/navigation.php';
+            // include 'app/views/Navigation/navigation.php';
         ?>
 
         <div class="content__txt content__txt_marg">
