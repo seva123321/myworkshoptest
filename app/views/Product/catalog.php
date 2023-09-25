@@ -1,5 +1,5 @@
         <?php
-            // include 'app/views/Navigation/navigation.php';
+        // include 'app/views/Navigation/navigation.php';
         ?>
 
         <div class="content__txt content__txt_marg">
@@ -13,7 +13,7 @@
                 <div class="select-wrapper" name="category" id="">
                     <i class="fa fa-2x fa-sort-desc"></i>
                     <i class="fa fa-2x fa-sort-asc d-noneFa"></i>
-                    <div id="filterCategory"class=" filterCategory select__category dropdownName dropdownName_size toggler_down">Категория</div>
+                    <div id="filterCategory" class=" filterCategory select__category dropdownName dropdownName_size toggler_down">Категория</div>
                     <div class="select d-none">
                         <option value="outerwear" class="dropdown">Верхняя одежда</option>
                         <option value="trousers" class="dropdown">Штаны</option>
@@ -50,38 +50,44 @@
 
         </form>
 
-    <section class="catalog">
-        <?php
-        foreach ($data as $key => $product) :
+       
+
+
+        <section class="catalog">
+            <?php
+            foreach ($data as $key => $product) :
             ?>
 
-            <a class="catalog__linkProduct n-decor" href="/product/id/<?= $product['idProductShop'] ?>">
-                <figure class="catalog__card">
-                    <div class="slider">
-                        <div class="slider__line">
-                        <?php
-                        if (!is_null($product['url'])) :
-                            $product['url'] = explode(',', $product['url']);
-                            foreach ($product['url'] as $url) :
+
+                <a class="catalog__linkProduct n-decor" href="/product/id/<?= $product['idProductShop'] ?>">
+                    <figure class="catalog__card">
+                        <div class="slider">
+                            <div class="slider__line">
+                                <?php
+                                if (!is_null($product['url'])) :
+                                    $product['url'] = explode(',', $product['url']);
+                                    foreach ($product['url'] as $url) :
                                 ?>
-                                    <img class="catalog__card__img" src="<?=UPLOADS . '\\' . $url?>" alt="img">
+                                        <img class="catalog__card__img" src="<?= UPLOADS . '\\' . $url ?>" alt="img">
+                                    <?php
+                                    endforeach;
+                                else : ?>
+                                    <img class="catalog__card__img" src="\app\public\images\6.jpg" alt="img">
                                 <?php
-                            endforeach;
-                        else : ?>
-                                <img class="catalog__card__img" src="\app\public\images\6.jpg" alt="img">
-                                <?php
-                        endif;
-                        ?>
+                                endif;
+                                ?>
+                            </div>
                         </div>
-                    </div>
-                    <figcaption class="catalog__card__content">
-                        <div class="catalog__card__name"><?= $product['name'] ?></div>
-                        <span class="catalog__card__price"><?= $product['price'] . " руб." ?></span>
-                    </figcaption>
-                </figure>
-            </a>
+                        <figcaption class="catalog__card__content">
+                            <div class="catalog__card__name"><?= $product['name'] ?></div>
+                            <span class="catalog__card__price"><?= $product['price'] . " руб." ?></span>
+                        </figcaption>
+                    </figure>
+                </a>
+
+
 
             <?php
-        endforeach;
-        ?>
-    </section>
+            endforeach;
+            ?>
+        </section>

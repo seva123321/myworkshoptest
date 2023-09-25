@@ -232,7 +232,7 @@
   gap: 30px;
 }
 
-.catalog__card {
+/* .catalog__card {
   width: 100%;
   display: flex;
   align-items: center;
@@ -242,7 +242,7 @@
   min-width: 100px;
   margin: 15px 0;
   cursor: pointer;
-}
+} */
 
 .slider {
   width: 100%;
@@ -349,3 +349,86 @@
     opacity: 1;
   }
 }
+
+
+/* ************************************************ */
+
+.catalog__card {
+  position: relative;
+  /* width: 200px;
+  height: 200px; */
+  margin: 50px auto 0;
+  /* Чтобы во время перетаскивания слайда ничего не выделить внутри него */
+  user-select: none;
+  /* Чтобы запретить скролл страницы, если мы начали двигать слайдер по оси X */
+  touch-action: pan-y;
+
+
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 200px;
+  min-width: 100px;
+  margin: 15px 0;
+  /* cursor: pointer; */
+}
+
+/* Если где-то внутри слайдера будут изображения,
+  то нужно задать им pointer-events: none,
+  чтобы они не перетаскивались мышью */
+
+.catalog__card img {
+  poiner-events: none;
+}
+
+.slider {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+
+.slider.grab {
+  cursor: grab;
+}
+
+.slider.grabbing {
+  cursor: grabbing;
+}
+
+.slider__line{
+  display: flex;
+}
+
+.catalog__card__img {
+  width: 200px;
+  height: 200px;
+  /* Чтобы слайды не сжимались */
+  flex-shrink: 0;
+  /* Увеличиваем и центрируем цифру внутри слайда */
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+}
+/* 
+.slider-arrows {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.next,
+.prev {
+  background: none;
+  border: none;
+  margin: 0 10px;
+  font-size: 30px;
+  cursor: pointer;
+} 
+.next.disabled,
+.prev.disabled {
+  opacity: 0.25;
+  pointer-events: none;
+} */
