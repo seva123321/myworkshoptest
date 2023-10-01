@@ -50,19 +50,23 @@
 
         </form>
 
-       
-
-
-        <section class="catalog">
+        <?php
+        //  dump($data[key]);
+        ?>
+        <section class="catalog" >
             <?php
             foreach ($data as $key => $product) :
             ?>
 
-
+                <?php
+                // $val = explode(',' ,$data[$key]["url"]);
+                // dump( count(explode(',' ,$data[$key]["url"])));
+                // dump(count($data));
+                ?>
                 <a class="catalog__linkProduct n-decor" href="/product/id/<?= $product['idProductShop'] ?>">
                     <figure class="catalog__card">
                         <div class="slider">
-                            <div class="slider__line">
+                            <div class="slider__line"  data-img = "<?= count(explode("," ,$data[$key]["url"]))?>">
                                 <?php
                                 if (!is_null($product['url'])) :
                                     $product['url'] = explode(',', $product['url']);
@@ -72,10 +76,15 @@
                                     <?php
                                     endforeach;
                                 else : ?>
+                                    <!-- заглушка -->
                                     <img class="catalog__card__img" src="\app\public\images\6.jpg" alt="img">
                                 <?php
                                 endif;
                                 ?>
+                            </div>
+                            <div class="slider-panel">
+                            </div>
+                            <div class="slider-panelDotted">
                             </div>
                         </div>
                         <figcaption class="catalog__card__content">
@@ -83,11 +92,10 @@
                             <span class="catalog__card__price"><?= $product['price'] . " руб." ?></span>
                         </figcaption>
                     </figure>
-                </a>
+                    </a>
 
 
-
-            <?php
+                <?php
             endforeach;
-            ?>
+                ?>
         </section>

@@ -22,7 +22,7 @@ class ProductController extends Controller
     {
         $this->view->AddJS('catalog/catalog.js');
         $data = $this->model->getProducts();
-        dump($data);
+        // dump($data);
         $this->view->render($data);
     }
 

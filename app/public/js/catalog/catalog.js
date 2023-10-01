@@ -1,85 +1,82 @@
-const CATALOG = document.querySelector('.catalog');
+const CATALOG = document.querySelector(".catalog");
 let clickValue = document.querySelector(".content__filter");
 
-function showBlock(Event)
-{
+function showBlock(Event) {
   //   console.log(Event.target);
-    let element = Event.target;
-    if (element.classList.contains("dropdownName")) {
-        let showElement = element.nextElementSibling.classList;
-        let arrowAsc = element.parentNode.querySelector(".fa-sort-asc");
-        let arrowDesc = element.parentNode.querySelector(".fa-sort-desc");
+  let element = Event.target;
+  if (element.classList.contains("dropdownName")) {
+    let showElement = element.nextElementSibling.classList;
+    let arrowAsc = element.parentNode.querySelector(".fa-sort-asc");
+    let arrowDesc = element.parentNode.querySelector(".fa-sort-desc");
 
-      // console.log(arrowDesc);
-      // console.log(arrowAsc);
+    // console.log(arrowDesc);
+    // console.log(arrowAsc);
 
-      // console.log(element);
-        showElement.toggle("b-show");
+    // console.log(element);
+    showElement.toggle("b-show");
 
-      // let value = element.querySelector;
-      // if (showElement.toggle("b-show")) {
-      // switch (element) {
-      //   case element.querySelector("#filterCategory"): //"Категория":
-      //     showElement.remove("b-show");
-      //     //   arrowAsc.add("d-noneFa");
-      //     //   arrowDesc.remove("d-noneFa");
-      //     // arrowElement.remove('d-noneFa');
-      //     break;
-      //   case element.querySelector("#filterCategory")://"Размер":
-      //     showElement.remove("b-show");
-      //     //   arrowAsc.add("d-noneFa");
-      //     //   arrowDesc.remove("d-noneFa");
-      //     break;
-      //   case element.querySelector("#filterCategory")://"Стоимость":
-      //     showElement.remove("b-show");
-      //     //   arrowAsc.add("d-noneFa");
-      //     //   arrowDesc.remove("d-noneFa");
-      //     break;
+    // let value = element.querySelector;
+    // if (showElement.toggle("b-show")) {
+    // switch (element) {
+    //   case element.querySelector("#filterCategory"): //"Категория":
+    //     showElement.remove("b-show");
+    //     //   arrowAsc.add("d-noneFa");
+    //     //   arrowDesc.remove("d-noneFa");
+    //     // arrowElement.remove('d-noneFa');
+    //     break;
+    //   case element.querySelector("#filterCategory")://"Размер":
+    //     showElement.remove("b-show");
+    //     //   arrowAsc.add("d-noneFa");
+    //     //   arrowDesc.remove("d-noneFa");
+    //     break;
+    //   case element.querySelector("#filterCategory")://"Стоимость":
+    //     showElement.remove("b-show");
+    //     //   arrowAsc.add("d-noneFa");
+    //     //   arrowDesc.remove("d-noneFa");
+    //     break;
 
-      //   default:
-      //     break;
-      // }
-      // }
-      // else {
-      //   switch (element) {
-      //     case element.querySelector("#filterCategory"): //"Категория":
-      //       showElement.add("b-show");
-      //       //   arrowAsc.remove("d-noneFa");
-      //       //   arrowDesc.add("d-noneFa");
-      //       break;
-      //     case "Размер":
-      //       showElement.add("b-show");
-      //       //   arrowAsc.remove("d-noneFa");
-      //       //   arrowDesc.add("d-noneFa");
-      //       break;
-      //     case "Стоимость":
-      //       showElement.add("b-show");
-      //       //   arrowAsc.remove("d-noneFa");
-      //       //   arrowDesc.add("d-noneFa");
-      //       break;
+    //   default:
+    //     break;
+    // }
+    // }
+    // else {
+    //   switch (element) {
+    //     case element.querySelector("#filterCategory"): //"Категория":
+    //       showElement.add("b-show");
+    //       //   arrowAsc.remove("d-noneFa");
+    //       //   arrowDesc.add("d-noneFa");
+    //       break;
+    //     case "Размер":
+    //       showElement.add("b-show");
+    //       //   arrowAsc.remove("d-noneFa");
+    //       //   arrowDesc.add("d-noneFa");
+    //       break;
+    //     case "Стоимость":
+    //       showElement.add("b-show");
+    //       //   arrowAsc.remove("d-noneFa");
+    //       //   arrowDesc.add("d-noneFa");
+    //       break;
 
-      //     default:
-      //       break;
-      //   }
-      // }
-    }
+    //     default:
+    //       break;
+    //   }
+    // }
+  }
 }
 
-function otrisValue(Event)
-{
-    let element = Event.target;
-    if (element.classList.contains('dropdown')) {
-        let value = element.getAttribute('value');
-        console.log(value.closest('.select'));
-        value.closest('.select');
-    }
+function otrisValue(Event) {
+  let element = Event.target;
+  if (element.classList.contains("dropdown")) {
+    let value = element.getAttribute("value");
+    console.log(value.closest(".select"));
+    value.closest(".select");
+  }
 }
 
 clickValue.addEventListener("click", function (Event) {
-    showBlock(Event);
-    otrisValue(Event);
+  showBlock(Event);
+  otrisValue(Event);
 });
-
 
 // CATALOG.addEventListener("touchstart", handleStart, false);
 // CATALOG.addEventListener("touchend", handleEnd, false);
@@ -115,7 +112,6 @@ clickValue.addEventListener("click", function (Event) {
 //         let moveX = Math.ceil(Event.changedTouches[0].clientX);
 //         let pos = startX - moveX
 
-
 //         if (startX < moveX) {
 //             console.log('right')
 //             let rollX = startX + (startX - moveX);
@@ -129,18 +125,13 @@ clickValue.addEventListener("click", function (Event) {
 
 // }
 
-
-
-
-
-
 let slider = document.querySelector(".catalog__card"),
   sliderList = slider.querySelector(".slider"),
   sliderTrack = slider.querySelector(".slider__line"),
   slides = slider.querySelectorAll(".catalog__card__img"),
-//   arrows = slider.querySelector(".slider-arrows"),
-//   prev = arrows.children[0],
-//   next = arrows.children[1],
+  //   arrows = slider.querySelector(".slider-arrows"),
+  //   prev = arrows.children[0],
+  //   next = arrows.children[1],
   slideWidth = slides[0].offsetWidth,
   slideIndex = 0,
   posInit = 0,
@@ -187,9 +178,9 @@ let slider = document.querySelector(".catalog__card"),
       sliderTrack.style.transition = "";
 
       document.addEventListener("touchmove", swipeAction);
-      document.addEventListener("mousemove", swipeAction);
+      // document.addEventListener("mousemove", swipeAction);
       document.addEventListener("touchend", swipeEnd);
-      document.addEventListener("mouseup", swipeEnd);
+      // document.addEventListener("mouseup", swipeEnd);
 
       sliderList.classList.remove("grab");
       sliderList.classList.add("grabbing");
@@ -260,9 +251,9 @@ let slider = document.querySelector(".catalog__card"),
     isSwipe = false;
 
     document.removeEventListener("touchmove", swipeAction);
-    document.removeEventListener("mousemove", swipeAction);
+    // document.removeEventListener("mousemove", swipeAction);
     document.removeEventListener("touchend", swipeEnd);
-    document.removeEventListener("mouseup", swipeEnd);
+    // document.removeEventListener("mouseup", swipeEnd);
 
     sliderList.classList.add("grab");
     sliderList.classList.remove("grabbing");
@@ -305,18 +296,67 @@ sliderList.classList.add("grab");
 
 sliderTrack.addEventListener("transitionend", () => (allowSwipe = true));
 slider.addEventListener("touchstart", swipeStart);
-slider.addEventListener("mousedown", swipeStart);
+// slider.addEventListener("mousedown", swipeStart);
 
-// arrows.addEventListener("mouseover", function () {
-//   let target = event.target;
+// prev.classList.toggle("disabled", slideIndex === 0);
+// next.classList.toggle("disabled", slideIndex === --slides.length);
 
-//   if (target.classList.contains("next")) {
-//     slideIndex++;
-//   } else if (target.classList.contains("prev")) {
-//     slideIndex--;
-//   } else {
-//     return;
-//   }
+sliderTrack.addEventListener("mouseover", function () {
+  let target = Event.target;
+  // // setInterval( slideIndex++, 4000);
+  // setInterval(() => {
+  //   slideIndex++
+  //   // sliderTrack.classList.toggle("disabled", slideIndex === 0);
+  //   // sliderTrack.classList.toggle("disabled", slideIndex === --slides.length);
+  //   console.log(`Event ${slideIndex}`);
+  // }, 4000);
 
-//   slide();
-// });
+  // if (target.classList.contains("next")) {
+  //   slideIndex++;
+  // } else if (target.classList.contains("prev")) {
+  //   slideIndex--;
+  // } else {
+  //   return;
+  // }
+
+  // slide();
+});
+
+let PANEL = null 
+let TEST = document.querySelectorAll('.slider__line')
+let cards = document.querySelectorAll(".catalog__linkProduct")
+
+// добавление точек в slider-panel по кол-ву изображений
+window.addEventListener('load',function(){
+
+  cards.forEach(function(oneCard,cardCount)   {
+     PANEL = oneCard.querySelector('.slider-panel')
+     PANELDOTTED = document.querySelectorAll('.slider-panelDotted')
+     let length = oneCard.querySelector('.slider__line').getAttribute('data-img')
+
+     PANEL.style.display= "grid"
+     PANEL.style.gridTemplateColumns = `repeat(${length},1fr)`
+    console.log('TEST ' + TEST)
+    // для одной карточки товара
+  for (let i=0; i <= length-1; i++ )
+  {
+
+        PANELDOTTED[cardCount].insertAdjacentHTML('beforeend',`<div class="sliderDotted__dotted"></div>`)
+        PANEL.insertAdjacentHTML('beforeend',`<div onmouseover = "showSlide(${i},${cardCount})" class="dotted"></div>`)
+  }
+
+});
+
+})
+
+function showSlide(number,cardCount)
+{
+  console.log('show ' + number)
+//     // удалить класс у всех точек
+  PANELDOTTED[cardCount].querySelectorAll('.sliderDotted__dotted').forEach(element => {
+    element.classList.remove('active')
+  })
+    // находим все точки, /выбираем нужную по ее индексу, /добавляем класс active
+    PANELDOTTED[cardCount].querySelectorAll('.sliderDotted__dotted')[number].classList.add('active')
+    TEST[cardCount].style.transform =`translateX(-${number*100}%)`
+}
