@@ -66,7 +66,7 @@
                 <a class="catalog__linkProduct n-decor" href="/product/id/<?= $product['idProductShop'] ?>">
                     <figure class="catalog__card">
                         <div class="slider">
-                            <div class="slider__line"  data-img = "<?= count(explode("," ,$data[$key]["url"]))?>">
+                            <div class="slider__line" data-img = "<?= count(explode("," ,$data[$key]["url"]))?>">
                                 <?php
                                 if (!is_null($product['url'])) :
                                     $product['url'] = explode(',', $product['url']);

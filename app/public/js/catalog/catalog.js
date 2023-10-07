@@ -323,40 +323,59 @@ sliderTrack.addEventListener("mouseover", function () {
 });
 
 let PANEL = null 
-let TEST = document.querySelectorAll('.slider__line')
-let cards = document.querySelectorAll(".catalog__linkProduct")
+const TEST = document.querySelectorAll('.slider__line')
+const CARDS = document.querySelectorAll(".catalog__linkProduct")
 
 // добавление точек в slider-panel по кол-ву изображений
 window.addEventListener('load',function(){
-
-  cards.forEach(function(oneCard,cardCount)   {
+  CARDS.forEach(function(oneCard,cardCount)   {
      PANEL = oneCard.querySelector('.slider-panel')
      PANELDOTTED = document.querySelectorAll('.slider-panelDotted')
      let length = oneCard.querySelector('.slider__line').getAttribute('data-img')
 
      PANEL.style.display= "grid"
      PANEL.style.gridTemplateColumns = `repeat(${length},1fr)`
-    console.log('TEST ' + TEST)
     // для одной карточки товара
-  for (let i=0; i <= length-1; i++ )
-  {
-
-        PANELDOTTED[cardCount].insertAdjacentHTML('beforeend',`<div class="sliderDotted__dotted"></div>`)
-        PANEL.insertAdjacentHTML('beforeend',`<div onmouseover = "showSlide(${i},${cardCount})" class="dotted"></div>`)
-  }
-
-});
-
+    console.log();
+        for (let i=0; i <= length-1; i++ )
+        {
+          PANELDOTTED[cardCount].insertAdjacentHTML('beforeend',`<div class="sliderDotted__dotted"></div>`)
+          PANEL.insertAdjacentHTML('beforeend',`<div onmouseover = "showSlide(${i},${cardCount})" class="dotted"></div>`)
+        }
+  });
+ 
 })
 
-function showSlide(number,cardCount)
+
+
+function showSlide(number,cardNumber)
 {
-  console.log('show ' + number)
-//     // удалить класс у всех точек
-  PANELDOTTED[cardCount].querySelectorAll('.sliderDotted__dotted').forEach(element => {
+// удалить класс у всех точек
+  PANELDOTTED[cardNumber].querySelectorAll('.sliderDotted__dotted').forEach(element => {
     element.classList.remove('active')
   })
     // находим все точки, /выбираем нужную по ее индексу, /добавляем класс active
-    PANELDOTTED[cardCount].querySelectorAll('.sliderDotted__dotted')[number].classList.add('active')
-    TEST[cardCount].style.transform =`translateX(-${number*100}%)`
-}
+    PANELDOTTED[cardNumber].querySelectorAll('.sliderDotted__dotted')[number].classList.add('active')
+    TEST[cardNumber].style.transform =`translateX(-${number*100}%)`
+  }
+ 
+  CATALOG.addEventListener('mouseover',function(Event){
+    let target = Event.target
+      const checkValue = Event.target.parentNode.previousElementSibling 
+      console.log(checkValue);
+      if(document.querySelector('.catalog')){
+          if ( !checkValue.classList.contains('slider__line'))
+          {
+
+            let value = document.querySelector('.slider__line[style^="transform"]')
+            setTimeout(()=>{
+              console.log('Событие произошло')
+              value.style =`translateX(0%)` //= ""
+            },1) //,4000)
+          }
+      }
+
+  })
+
+
+
