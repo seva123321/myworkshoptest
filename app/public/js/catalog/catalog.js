@@ -361,17 +361,23 @@ function showSlide(number,cardNumber)
  
   CATALOG.addEventListener('mouseover',function(Event){
     let target = Event.target
+    if(document.querySelector('.catalog')){
+      
       const checkValue = Event.target.parentNode.previousElementSibling 
-      console.log(checkValue);
-      if(document.querySelector('.catalog')){
-          if ( !checkValue.classList.contains('slider__line'))
-          {
+          console.log(Event.target.parentNode)
 
-            let value = document.querySelector('.slider__line[style^="transform"]')
-            setTimeout(()=>{
-              console.log('Событие произошло')
-              value.style =`translateX(0%)` //= ""
-            },1) //,4000)
+          if ( !checkValue?.classList.contains('slider__line') )
+          {
+            let value = CATALOG.querySelectorAll('.slider__line[style^="transform"]')
+            value.forEach(element=>{
+              element.style.transform =`translateX(0%)` //= ""
+            })
+            // setTimeout(()=>{
+            //   console.log('Событие произошло')
+            //   value.forEach(element=>{
+            //     element.style.transform =`translateX(0%)` //= ""
+            //   })
+            // },2000) //,4000)
           }
       }
 
