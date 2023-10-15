@@ -125,15 +125,20 @@ clickValue.addEventListener("click", function (Event) {
 
 // }
 
-let slider = document.querySelector(".catalog__card"),
-  sliderList = slider.querySelector(".slider"),
-  sliderTrack = slider.querySelector(".slider__line"),
-  slides = slider.querySelectorAll(".catalog__card__img"),
-  //   arrows = slider.querySelector(".slider-arrows"),
-  //   prev = arrows.children[0],
-  //   next = arrows.children[1],
-  slideWidth = slides[0].offsetWidth,
-  slideIndex = 0,
+
+const TEST = document.querySelectorAll('.slider__line')
+const CARDS = document.querySelectorAll(".catalog__linkProduct")
+let slideIndex = {}
+
+TEST.forEach(element =>  {
+  let key = element.closest('.catalog__linkProduct').getAttribute('data-index')
+  slideIndex[key] =  0
+  
+})
+
+
+let i = 1
+let
   posInit = 0,
   posX1 = 0,
   posX2 = 0,
@@ -146,31 +151,29 @@ let slider = document.querySelector(".catalog__card"),
   transition = true,
   nextTrf = 0,
   prevTrf = 0,
-  lastTrf = --slides.length * slideWidth,
-  posThreshold = slides[0].offsetWidth * 0.35,
   trfRegExp = /([-0-9.]+(?=px))/,
   getEvent = function () {
-    return event.type.search("touch") !== -1 ? event.touches[0] : event;
+    return event.type.search("touch") !== -1 ? event.touches[0] : Event;
   },
-  slide = function () {
-    if (transition) {
-      sliderTrack.style.transition = "transform .5s";
-    }
-    sliderTrack.style.transform = `translate3d(-${
-      slideIndex * slideWidth
-    }px, 0px, 0px)`;
+  swipeStart = function (Event) {
+    // console.log('Вы приложили палец к элементу')
 
-    prev.classList.toggle("disabled", slideIndex === 0);
-    next.classList.toggle("disabled", slideIndex === --slides.length);
-  },
-  swipeStart = function () {
     let evt = getEvent();
+    
+    i = evt.target.parentNode.closest('.catalog__linkProduct').getAttribute('data-index')
+    sliderList = CARDS[i].querySelector(".slider")
+    sliderTrack = CARDS[i].querySelector(".slider__line")
+    slides = CARDS[i].querySelectorAll(".catalog__card__img")
+
+    slideWidth = slides[i].offsetWidth
+    lastTrf = --slides[i].length * slideWidth
+    posThreshold = slides[i].offsetWidth * 0.35
 
     if (allowSwipe) {
       transition = true;
 
-      nextTrf = (slideIndex + 1) * -slideWidth;
-      prevTrf = (slideIndex - 1) * -slideWidth;
+      nextTrf = (slideIndex[i] + 1) * -slideWidth;
+      prevTrf = (slideIndex[i] - 1) * -slideWidth;
 
       posInit = posX1 = evt.clientX;
       posY1 = evt.clientY;
@@ -184,12 +187,27 @@ let slider = document.querySelector(".catalog__card"),
 
       sliderList.classList.remove("grab");
       sliderList.classList.add("grabbing");
+    //  style = sliderTrack.style.transform
+      //console.log(style);
     }
+  },
+    slide = function () {
+    if (transition) {
+      sliderTrack.style.transition = "transform .5s";
+    }
+    sliderTrack.style.transform = `translate3d(-${
+      slideIndex[i] * slideWidth
+    }px, 0px, 0px)`;
+
+    // console.log(slideIndex);
+
+    // prev.classList.toggle("disabled", slideIndex === 0);
+    // next.classList.toggle("disabled", slideIndex === --slides.length);
   },
   swipeAction = function () {
     let evt = getEvent(),
       style = sliderTrack.style.transform,
-      transform = +style.match(trfRegExp)[0];
+      transform = +style.match(trfRegExp)[0];//!!!
 
     posX2 = posX1 - evt.clientX;
     posX1 = evt.clientX;
@@ -207,10 +225,10 @@ let slider = document.querySelector(".catalog__card"),
         isSwipe = true;
       }
     }
-
+//************************************************** */
     if (isSwipe) {
       // запрет ухода влево на первом слайде
-      if (slideIndex === 0) {
+      if (slideIndex[i] === 0) {
         if (posInit < posX1) {
           setTransform(transform, 0);
           return;
@@ -220,7 +238,7 @@ let slider = document.querySelector(".catalog__card"),
       }
 
       // запрет ухода вправо на последнем слайде
-      if (slideIndex === --slides.length) {
+      if (slideIndex[i] === --slides.length) {
         if (posInit > posX1) {
           setTransform(transform, lastTrf);
           return;
@@ -237,8 +255,8 @@ let slider = document.querySelector(".catalog__card"),
         reachEdge();
         return;
       }
-
-      // двигаем слайд
+//************************************************** */
+    // двигаем слайд
       sliderTrack.style.transform = `translate3d(${
         transform - posX2
       }px, 0px, 0px)`;
@@ -261,9 +279,9 @@ let slider = document.querySelector(".catalog__card"),
     if (allowSwipe) {
       if (Math.abs(posFinal) > posThreshold) {
         if (posInit < posX1) {
-          slideIndex--;
+          slideIndex[i] -= 1//i--;
         } else if (posInit > posX1) {
-          slideIndex++;
+          slideIndex[i] += 1// i++;
         }
       }
 
@@ -280,7 +298,7 @@ let slider = document.querySelector(".catalog__card"),
   setTransform = function (transform, comapreTransform) {
     if (transform >= comapreTransform) {
       if (transform > comapreTransform) {
-        sliderTrack.style.transform = `translate3d(${comapreTransform}px, 0px, 0px)`;
+        sliderTrack[i].style.transform = `translate3d(${comapreTransform}px, 0px, 0px)`;
       }
     }
     allowSwipe = false;
@@ -291,40 +309,26 @@ let slider = document.querySelector(".catalog__card"),
     allowSwipe = true;
   };
 
-sliderTrack.style.transform = "translate3d(0px, 0px, 0px)";
-sliderList.classList.add("grab");
+  if (swipeStart){
+  
+  CARDS.forEach(function(card){
+  
+  card.querySelector(".slider__line").style.transform = "translate3d(0px, 0px, 0px)";
+  card.querySelector(".slider").classList.add("grab");
+  card.querySelector(".slider__line").addEventListener("transitionend", () => (allowSwipe = true));
 
-sliderTrack.addEventListener("transitionend", () => (allowSwipe = true));
-slider.addEventListener("touchstart", swipeStart);
+})
+// sliderTrack.style.transform = "translate3d(0px, 0px, 0px)";
+// sliderList.classList.add("grab");
+// sliderTrack.addEventListener("transitionend", () => (allowSwipe = true));
+}
+// CARDS[i].addEventListener("touchstart", swipeStart);
+CATALOG.addEventListener("touchstart", swipeStart);
+  
 // slider.addEventListener("mousedown", swipeStart);
 
-// prev.classList.toggle("disabled", slideIndex === 0);
-// next.classList.toggle("disabled", slideIndex === --slides.length);
-
-sliderTrack.addEventListener("mouseover", function () {
-  let target = Event.target;
-  // // setInterval( slideIndex++, 4000);
-  // setInterval(() => {
-  //   slideIndex++
-  //   // sliderTrack.classList.toggle("disabled", slideIndex === 0);
-  //   // sliderTrack.classList.toggle("disabled", slideIndex === --slides.length);
-  //   console.log(`Event ${slideIndex}`);
-  // }, 4000);
-
-  // if (target.classList.contains("next")) {
-  //   slideIndex++;
-  // } else if (target.classList.contains("prev")) {
-  //   slideIndex--;
-  // } else {
-  //   return;
-  // }
-
-  // slide();
-});
 
 let PANEL = null 
-const TEST = document.querySelectorAll('.slider__line')
-const CARDS = document.querySelectorAll(".catalog__linkProduct")
 
 // добавление точек в slider-panel по кол-ву изображений
 window.addEventListener('load',function(){
@@ -364,7 +368,7 @@ function showSlide(number,cardNumber)
     if(document.querySelector('.catalog')){
       
       const checkValue = Event.target.parentNode.previousElementSibling 
-          console.log(Event.target.parentNode)
+          // console.log(Event.target.parentNode)
 
           if ( !checkValue?.classList.contains('slider__line') )
           {

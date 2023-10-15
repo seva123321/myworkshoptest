@@ -61,9 +61,10 @@
                 <?php
                 // $val = explode(',' ,$data[$key]["url"]);
                 // dump( count(explode(',' ,$data[$key]["url"])));
-                // dump(count($data));
+                // dump($key)
                 ?>
-                <a class="catalog__linkProduct n-decor" href="/product/id/<?= $product['idProductShop'] ?>">
+               
+                <a class="catalog__linkProduct n-decor" data-index="<?= $key?>" href="/product/id/<?= $product['idProductShop'] ?>">
                     <figure class="catalog__card">
                         <div class="slider">
                             <div class="slider__line" data-img = "<?= count(explode("," ,$data[$key]["url"]))?>">
