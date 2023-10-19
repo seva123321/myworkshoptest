@@ -155,7 +155,7 @@ let
   getEvent = function () {
     return event.type.search("touch") !== -1 ? event.touches[0] : Event;
   },
-  swipeStart = function (Event) {
+  swipeStart = function () {
     // console.log('Вы приложили палец к элементу')
 
     let evt = getEvent();

@@ -61,7 +61,7 @@
                 <?php
                 // $val = explode(',' ,$data[$key]["url"]);
                 // dump( count(explode(',' ,$data[$key]["url"])));
-                // dump($key)
+                dump($data)
                 ?>
                
                 <a class="catalog__linkProduct n-decor" data-index="<?= $key?>" href="/product/id/<?= $product['idProductShop'] ?>">

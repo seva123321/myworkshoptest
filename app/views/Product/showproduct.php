@@ -1,7 +1,29 @@
 <div class="wrapper">
+    
     <figure class="card">
         <div class="card__imgWrapp">
-            <img class="card__img" src="<?= $data['imgPath'] ?>" alt="images_product">
+     
+        <?php
+        //   dump($data);
+        ?>
+
+                <?php
+                if (!is_null($data['url'])) :
+                    $data['url'] = explode(',', $data['url']);
+                    foreach ($data['url'] as $url) :
+                ?>
+                        <img class="card__img" src="<?= UPLOADS . '\\' . $url ?>" alt="images_product">
+                    <?php
+                    endforeach;
+                else : ?>
+                    <!-- заглушка -->
+                    <img class="catalog__card__img" src="\app\public\images\6.jpg" alt="images_product">
+                <?php
+                endif;
+                ?>
+
+            <!-- <img class="card__img" src="<?= $data['url'] ?>" alt="images_product"> -->
+       
         </div>
         <figcaption class="card__content">
             <h2 class="card__content__name h2_size "><?= $data['name'] ?></h2>

@@ -7,7 +7,7 @@ use market\core\Connection;
 class ShowProductModel extends Model {
     
 
-    const TABLE_NAME = 'productShop';
+    const TABLE_NAME = 'productImages';
 
   /**
    * @param int $id
@@ -15,7 +15,8 @@ class ShowProductModel extends Model {
    */
   public function getProduct(int $id):bool|array
   {
-      $sql = "SELECT  * FROM ".static::TABLE_NAME." WHERE idProductShop = $id ";
+
+      $sql = "SELECT *, (SELECT  GROUP_CONCAT(path) FROM ".static::TABLE_NAME." WHERE idProduct = $id ) as url FROM `productShop` WHERE idProductShop =  $id";
       // запрос в базу на получение всех товаров
       $result = Connection::$db->query($sql)->fetch();
       return $result;
