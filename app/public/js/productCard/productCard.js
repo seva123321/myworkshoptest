@@ -83,13 +83,11 @@ imgPole.addEventListener('click',function(Event){
 
 
 
-
-
-let slider = document.querySelector('.card__pole'),
-  sliderList = slider.querySelector('.card__arrow_pole'),
-  sliderTrack = slider.querySelector('.card__imgWrapp'),
-  slides = slider.querySelectorAll('.catalog__card__img'),
-  arrows = slider.querySelector('.slider-arrows'),
+let slider = document.querySelector(".card__pole"),
+  sliderList = slider.querySelector(".card__arrow_pole"),
+  sliderTrack = slider.querySelector(".card__imgWrapp"),
+  slides = slider.querySelectorAll(".card__img"),
+  arrows = slider.querySelector(".slider-arrows"),
   prev = arrows.children[0],
   next = arrows.children[1],
   slideWidth = slides[0].offsetWidth,
@@ -109,23 +107,24 @@ let slider = document.querySelector('.card__pole'),
   lastTrf = --slides.length * slideWidth,
   posThreshold = slides[0].offsetWidth * 0.35,
   trfRegExp = /([-0-9.]+(?=px))/,
-  getEvent = function() {
-    return (Event.type.search('touch') !== -1) ? Event.touches[0] : event;
+  getEvent = function () {
+    return event.type.search("touch") !== -1 ? event.touches[0] : event;
   },
-  slide = function() {
+  slide = function () {
     if (transition) {
-      sliderTrack.style.transition = 'transform .5s';
+      sliderTrack.style.transition = "transform .5s";
     }
-    sliderTrack.style.transform = `translate3d(-${slideIndex * slideWidth}px, 0px, 0px)`;
+    sliderTrack.style.transform = `translate3d(-${
+      slideIndex * slideWidth
+    }px, 0px, 0px)`;
 
-    prev.classList.toggle('disabled', slideIndex === 0);
-    next.classList.toggle('disabled', slideIndex === --slides.length);
+    prev.classList.toggle("disabled", slideIndex === 0);
+    next.classList.toggle("disabled", slideIndex === --slides.length);
   },
-  swipeStart = function() {
+  swipeStart = function () {
     let evt = getEvent();
 
     if (allowSwipe) {
-
       transition = true;
 
       nextTrf = (slideIndex + 1) * -slideWidth;
@@ -134,19 +133,18 @@ let slider = document.querySelector('.card__pole'),
       posInit = posX1 = evt.clientX;
       posY1 = evt.clientY;
 
-      sliderTrack.style.transition = '';
+      sliderTrack.style.transition = "";
 
-      document.addEventListener('touchmove', swipeAction);
-      document.addEventListener('mousemove', swipeAction);
-      document.addEventListener('touchend', swipeEnd);
-      document.addEventListener('mouseup', swipeEnd);
+      document.addEventListener("touchmove", swipeAction);
+      document.addEventListener("mousemove", swipeAction);
+      document.addEventListener("touchend", swipeEnd);
+      document.addEventListener("mouseup", swipeEnd);
 
-      sliderList.classList.remove('grab');
-      sliderList.classList.add('grabbing');
+      sliderList.classList.remove("grab");
+      sliderList.classList.add("grabbing");
     }
   },
-  swipeAction = function() {
-
+  swipeAction = function () {
     let evt = getEvent(),
       style = sliderTrack.style.transform,
       transform = +style.match(trfRegExp)[0];
@@ -190,29 +188,33 @@ let slider = document.querySelector('.card__pole'),
       }
 
       // запрет протаскивания дальше одного слайда
-      if (posInit > posX1 && transform < nextTrf || posInit < posX1 && transform > prevTrf) {
+      if (
+        (posInit > posX1 && transform < nextTrf) ||
+        (posInit < posX1 && transform > prevTrf)
+      ) {
         reachEdge();
         return;
       }
 
       // двигаем слайд
-      sliderTrack.style.transform = `translate3d(${transform - posX2}px, 0px, 0px)`;
+      sliderTrack.style.transform = `translate3d(${
+        transform - posX2
+      }px, 0px, 0px)`;
     }
-
   },
-  swipeEnd = function() {
+  swipeEnd = function () {
     posFinal = posInit - posX1;
 
     isScroll = false;
     isSwipe = false;
 
-    document.removeEventListener('touchmove', swipeAction);
-    document.removeEventListener('mousemove', swipeAction);
-    document.removeEventListener('touchend', swipeEnd);
-    document.removeEventListener('mouseup', swipeEnd);
+    document.removeEventListener("touchmove", swipeAction);
+    document.removeEventListener("mousemove", swipeAction);
+    document.removeEventListener("touchend", swipeEnd);
+    document.removeEventListener("mouseup", swipeEnd);
 
-    sliderList.classList.add('grab');
-    sliderList.classList.remove('grabbing');
+    sliderList.classList.add("grab");
+    sliderList.classList.remove("grabbing");
 
     if (allowSwipe) {
       if (Math.abs(posFinal) > posThreshold) {
@@ -229,13 +231,11 @@ let slider = document.querySelector('.card__pole'),
       } else {
         allowSwipe = true;
       }
-
     } else {
       allowSwipe = true;
     }
-
   },
-  setTransform = function(transform, comapreTransform) {
+  setTransform = function (transform, comapreTransform) {
     if (transform >= comapreTransform) {
       if (transform > comapreTransform) {
         sliderTrack.style.transform = `translate3d(${comapreTransform}px, 0px, 0px)`;
@@ -243,25 +243,26 @@ let slider = document.querySelector('.card__pole'),
     }
     allowSwipe = false;
   },
-  reachEdge = function() {
+  reachEdge = function () {
     transition = false;
     swipeEnd();
     allowSwipe = true;
   };
 
-sliderTrack.style.transform = 'translate3d(0px, 0px, 0px)';
-sliderList.classList.add('grab');
+sliderTrack.style.transform = "translate3d(0px, 0px, 0px)";
+sliderList.classList.add("grab");
 
-sliderTrack.addEventListener('transitionend', () => allowSwipe = true);
-slider.addEventListener('touchstart', swipeStart);
-slider.addEventListener('mousedown', swipeStart);
+sliderTrack.addEventListener("transitionend", () => (allowSwipe = true));
+slider.addEventListener("touchstart", swipeStart);
+slider.addEventListener("mousedown", swipeStart);
 
-arrows.addEventListener('click', function() {
+
+arrows.addEventListener("click", function () {
   let target = event.target;
 
-  if (target.classList.contains('next')) {
+  if (target.classList.contains("next")) {
     slideIndex++;
-  } else if (target.classList.contains('prev')) {
+  } else if (target.classList.contains("prev")) {
     slideIndex--;
   } else {
     return;

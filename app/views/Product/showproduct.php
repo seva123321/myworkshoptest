@@ -32,12 +32,15 @@
                     <?php
                     endif;
                     ?>
-                    <div class="slider-arrows">
-                        <!-- <button type="button" class="prev fa-arrow-circle-o-left">&larr;</button> -->
-                        <!-- <button type="button" class="next fa-arrow-circle-o-right">&rarr;</button> -->
-                        <i id="arrow-left" class="fa fa-3x fa-arrow-circle-o-left"></i>
-                        <i id="arrow-right" class="fa fa-3x fa-arrow-circle-o-right"></i>
-                    </div>
+                    <!-- <div class="slider-arrows">
+                       
+                        <i id="arrow-left" class="prev fa fa-3x fa-arrow-circle-o-left"></i>
+                        <i id="arrow-right" class="next fa fa-3x fa-arrow-circle-o-right"></i>
+                    </div> -->
+                 </div>
+                 <div class="slider-arrows">
+                        <i id="arrow-left" class="prev fa fa-3x fa-arrow-circle-o-left"></i>
+                        <i id="arrow-right" class="next fa fa-3x fa-arrow-circle-o-right"></i>
                  </div>
             </div>
 
