@@ -29,7 +29,7 @@ class ProductController extends Controller
     public function showProduct(): void
     {
         extract($this->variables);
-        $this->view->AddJS('basket/basketAdd.js');
+        $this->view->AddJS('productCard/productCard.js');
         $data = $this->model->getProduct((int)$id);
         $this->view->render($data);
     }
