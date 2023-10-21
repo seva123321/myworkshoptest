@@ -17,28 +17,28 @@
 
             <div class="card__arrow_pole">
                 <div class="card__imgWrapp">
+                        <?php
+                        //   dump($data);
+                        ?>
+                        <?php
+                        foreach ($data['url'] as $url) :
+                        ?>
+                            <img class="card__img" src="<?= UPLOADS . '\\' . $url ?>" alt="images_product">
+                        <?php
+                        endforeach;
+                    else : ?>
+                        <!-- заглушка -->
+                        <img class="card__img" src="\app\public\images\6.jpg" alt="images_product">
                     <?php
-                    //   dump($data);
+                    endif;
                     ?>
-                    <?php
-                    foreach ($data['url'] as $url) :
-                    ?>
-                        <img class="card__img" src="<?= UPLOADS . '\\' . $url ?>" alt="images_product">
-                    <?php
-                    endforeach;
-                else : ?>
-                    <!-- заглушка -->
-                    <img class="card__img" src="\app\public\images\6.jpg" alt="images_product">
-                <?php
-                endif;
-                ?>
-                <div class="slider-arrows">
-                    <!-- <button type="button" class="prev fa-arrow-circle-o-left">&larr;</button> -->
-                    <!-- <button type="button" class="next fa-arrow-circle-o-right">&rarr;</button> -->
-                    <i id="arrow-left" class="fa fa-3x fa-arrow-circle-o-left"></i>
-                    <i id="arrow-right" class="fa fa-3x fa-arrow-circle-o-right"></i>
-                </div>
-                </div>
+                    <div class="slider-arrows">
+                        <!-- <button type="button" class="prev fa-arrow-circle-o-left">&larr;</button> -->
+                        <!-- <button type="button" class="next fa-arrow-circle-o-right">&rarr;</button> -->
+                        <i id="arrow-left" class="fa fa-3x fa-arrow-circle-o-left"></i>
+                        <i id="arrow-right" class="fa fa-3x fa-arrow-circle-o-right"></i>
+                    </div>
+                 </div>
             </div>
 
 
