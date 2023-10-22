@@ -136,9 +136,9 @@ let slider = document.querySelector(".card__pole"),
       sliderTrack.style.transition = "";
 
       document.addEventListener("touchmove", swipeAction);
-      document.addEventListener("mousemove", swipeAction);
+      // document.addEventListener("mousemove", swipeAction);
       document.addEventListener("touchend", swipeEnd);
-      document.addEventListener("mouseup", swipeEnd);
+      // document.addEventListener("mouseup", swipeEnd);
 
       sliderList.classList.remove("grab");
       sliderList.classList.add("grabbing");
@@ -209,9 +209,9 @@ let slider = document.querySelector(".card__pole"),
     isSwipe = false;
 
     document.removeEventListener("touchmove", swipeAction);
-    document.removeEventListener("mousemove", swipeAction);
+    // document.removeEventListener("mousemove", swipeAction);
     document.removeEventListener("touchend", swipeEnd);
-    document.removeEventListener("mouseup", swipeEnd);
+    // document.removeEventListener("mouseup", swipeEnd);
 
     sliderList.classList.add("grab");
     sliderList.classList.remove("grabbing");
@@ -254,7 +254,7 @@ sliderList.classList.add("grab");
 
 sliderTrack.addEventListener("transitionend", () => (allowSwipe = true));
 slider.addEventListener("touchstart", swipeStart);
-slider.addEventListener("mousedown", swipeStart);
+// slider.addEventListener("mousedown", swipeStart);
 
 
 arrows.addEventListener("click", function () {
