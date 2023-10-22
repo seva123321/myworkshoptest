@@ -57,18 +57,6 @@ function setStorage(key, id)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 let slider = document.querySelector(".card__pole"),
   sliderList = slider.querySelector(".card__arrow_pole"),
   sliderTrack = slider.querySelector(".card__imgWrapp"),
@@ -256,3 +244,40 @@ arrows.addEventListener("click", function () {
 
   slide();
 });
+
+
+
+let  sliderTrackVert = slider.querySelector(".card__imgPannel"),
+  slidesVert = slider.querySelectorAll(".cardImgPannel__img"),
+  arrowsVert = slider.querySelector(".card__arrowArea"),
+  prevVert = slider.querySelector(".fa-angle-up"),
+  nextVert = slider.querySelector(".fa-angle-down"),
+  transitionVert = true,
+  slideHeight = slidesVert[0].offsetHeight   /*offsetWidth*/,
+  slideIndexVert = 0 
+  
+
+  arrowsVert.addEventListener("click", function (Event) {
+  let target = Event.target;
+
+  if (target.classList.contains("next")) {
+    slideIndexVert++;  
+  } else if (target.classList.contains("prev")) {
+    slideIndexVert--;
+  } else {
+    return;
+  }
+
+  slideVert();
+});
+
+let slideVert = function () {
+  if (transition) {
+    sliderTrackVert.style.transition = "transform .5s";
+  }  
+    sliderTrackVert.style.transform = `translate3d(0px,-${
+    slideIndexVert * slideHeight
+  }px, 0px)`;
+  prevVert.classList.toggle("disabled", slideIndexVert === 0);
+  nextVert.classList.toggle("disabled", slideIndexVert === --slidesVert.length);
+}

@@ -124,22 +124,25 @@
 .cardImgPannel__img {
   width: 100px;
   height: 100px;
-  margin: 5px;
+  padding:  5px;
+  border-radius: 10%;
+  box-sizing: content-box;
 }
 
 .cardImgPannel__img:hover {
-  scale: 1.1;
+  /* scale: 1.1; */
+  box-shadow: inset 0px 0px 33px rgba(0, 0, 0, 0.2);
   transition: 0.25s;
   cursor: pointer;
 }
 
-.fa-caret-down,
-.fa-caret-up{
+.fa-angle-down,
+.fa-angle-up{
   color: #303030;
 }
 
-.fa-caret-down:hover,
-.fa-caret-up:hover{
+.fa-angle-down:hover,
+.fa-angle-up:hover{
   scale: 1.2;
   transition: 0.25s;
 
@@ -200,6 +203,7 @@
   opacity: 0.25;
   pointer-events: none;
 }
+
 .card__content {
   background-color: #ffffff;
   /* height: 450px; */

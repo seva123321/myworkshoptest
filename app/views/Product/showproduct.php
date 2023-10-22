@@ -4,7 +4,7 @@
         <div class="card__pole">
 
             <div class="card__arrowArea">
-                <i class="prev fa fa-3x fa-caret-up" aria-hidden="true"></i>
+                <i class="prev fa fa-3x fa-angle-up" aria-hidden="true"></i>
                 <div class="card__wrapImgPannel">
                     <div class="card__imgPannel">
                         <?php
@@ -18,7 +18,8 @@
                             ?>
                     </div>
                 </div>
-                <i class="next fa fa-3x fa-caret-down" aria-hidden="true"></i>
+                <i class="next fa fa-3x fa-angle-down" aria-hidden="true"></i>
+
             </div>
 
             <div class="card__arrow_pole">
