@@ -54,20 +54,6 @@ function setStorage(key, id)
 }
 
 
-// let slider = document.querySelector('.card__arrow_pole');
-let slider_line = document.querySelector('.card__imgWrapp');
-
-imgPole.addEventListener('click',function(Event){
-  let target = Event.target
-  // console.log(target);
-
-  if ( target.classList.contains('fa-arrow-circle-o-left') )
-  {
-    console.log(target);
-  }
-
-})
-
 
 
 

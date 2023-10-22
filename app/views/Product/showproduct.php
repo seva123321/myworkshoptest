@@ -3,45 +3,46 @@
     <figure class="card">
         <div class="card__pole">
 
-            <div class="card__imgPannel">
-                <?php
-                if (!is_null($data['url'])) :
-                    $data['url'] = explode(',', $data['url']);
-                    foreach ($data['url'] as $url) :
-                ?>
-                        <img class="cardImgPannel__img" src="<?= UPLOADS . '\\' . $url ?>" alt="images_product">
-                    <?php
-                    endforeach;
-                    ?>
+            <div class="card__arrowArea">
+                <i class="prev fa fa-3x fa-caret-up" aria-hidden="true"></i>
+                <div class="card__wrapImgPannel">
+                    <div class="card__imgPannel">
+                        <?php
+                        if (!is_null($data['url'])) :
+                            $data['url'] = explode(',', $data['url']);
+                            foreach ($data['url'] as $url) :
+                        ?>
+                                <img class="cardImgPannel__img" src="<?= UPLOADS . '\\' . $url ?>" alt="images_product">
+                            <?php
+                            endforeach;
+                            ?>
+                    </div>
+                </div>
+                <i class="next fa fa-3x fa-caret-down" aria-hidden="true"></i>
             </div>
 
             <div class="card__arrow_pole">
                 <div class="card__imgWrapp">
-                        <?php
-                        //   dump($data);
-                        ?>
-                        <?php
-                        foreach ($data['url'] as $url) :
-                        ?>
-                            <img class="card__img" src="<?= UPLOADS . '\\' . $url ?>" alt="images_product">
-                        <?php
-                        endforeach;
-                    else : ?>
-                        <!-- заглушка -->
-                        <img class="card__img" src="\app\public\images\6.jpg" alt="images_product">
                     <?php
-                    endif;
+                            //   dump($data);
                     ?>
-                    <!-- <div class="slider-arrows">
-                       
-                        <i id="arrow-left" class="prev fa fa-3x fa-arrow-circle-o-left"></i>
-                        <i id="arrow-right" class="next fa fa-3x fa-arrow-circle-o-right"></i>
-                    </div> -->
-                 </div>
-                 <div class="slider-arrows">
-                        <i id="arrow-left" class="prev fa fa-3x fa-arrow-circle-o-left"></i>
-                        <i id="arrow-right" class="next fa fa-3x fa-arrow-circle-o-right"></i>
-                 </div>
+                    <?php
+                            foreach ($data['url'] as $url) :
+                    ?>
+                        <img class="card__img" src="<?= UPLOADS . '\\' . $url ?>" alt="images_product">
+                    <?php
+                            endforeach;
+                        else : ?>
+                    <!-- заглушка -->
+                    <img class="card__img" src="\app\public\images\6.jpg" alt="images_product">
+                <?php
+                        endif;
+                ?>
+                </div>
+                <div class="slider-arrows">
+                    <i id="slider__arrow-left" class="prev fa fa-3x fa-arrow-circle-o-left"></i>
+                    <i id="slider__arrow-right" class="next fa fa-3x fa-arrow-circle-o-right"></i>
+                </div>
             </div>
 
 
