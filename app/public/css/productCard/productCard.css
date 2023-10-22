@@ -67,12 +67,12 @@
 
 .slider-arrows i {
   cursor: pointer;
-  color: white;
+  color: #e5e5e5;
   transition: all 300ms;
 }
 
 .slider-arrows i:hover {
-  color: rgba(255, 255, 0, 0.641);
+  color: #4a4646;
 }
 
 .fa-arrow-circle-o-left,
@@ -116,7 +116,7 @@
   
 }
 @media screen and (max-width: 620px) {
-  .card__imgPannel {
+  .card__arrowArea {
     display: none;
   }
 }
@@ -165,9 +165,7 @@
     width: 320px;
     height: auto;
   }
-  .slider-arrows {
-    display: none;
-  }
+
 }
 
 @media screen and (max-width: 380px) {
@@ -186,9 +184,7 @@
     width: 240px;
     height: auto;
   }
-  .slider-arrows {
-    display: none;
-  }
+
 }
 .next,
 .prev {
