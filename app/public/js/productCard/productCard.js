@@ -223,6 +223,8 @@ let slider = document.querySelector(".card__pole"),
     allowSwipe = true;
   };
 
+prev.classList.toggle("disabled", slideIndex === 0);
+
 sliderTrack.style.transform = "translate3d(0px, 0px, 0px)";
 sliderList.classList.add("grab");
 
@@ -242,7 +244,13 @@ arrows.addEventListener("click", function () {
     return;
   }
 
-  slide();
+
+
+
+  // if ( (slideIndex >= 0) || (slideIndex <= --slides.length) ) {
+  // }
+    slide();
+  
 });
 
 
@@ -261,6 +269,7 @@ let  sliderTrackVert = slider.querySelector(".card__imgPannel"),
   let target = Event.target;
 
   if (target.classList.contains("next")) {
+    // console.log(slidesVert);
     slideIndexVert++;  
   } else if (target.classList.contains("prev")) {
     slideIndexVert--;
@@ -281,3 +290,18 @@ let slideVert = function () {
   prevVert.classList.toggle("disabled", slideIndexVert === 0);
   nextVert.classList.toggle("disabled", slideIndexVert === --slidesVert.length);
 }
+
+
+function showSlide(number)
+{
+    console.log(slideIndex);
+    console.log(sliderTrack)
+    sliderTrack.style.transition = "transform .5s";
+    sliderTrack.style.transform =`translate3d(-${number*100}%, 0px, 0px)`
+    slideIndex = number
+    prev.classList.toggle("disabled", slideIndex === 0);
+    next.classList.toggle("disabled", slideIndex === --slides.length);
+  }
+
+
+   

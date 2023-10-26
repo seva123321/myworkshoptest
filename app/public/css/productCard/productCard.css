@@ -112,7 +112,9 @@
 
 .card__imgPannel {
   display: flex;
+  align-items: center;
   flex-direction: column;
+  /* position: relative; */
   
 }
 @media screen and (max-width: 620px) {
@@ -127,6 +129,8 @@
   padding:  5px;
   border-radius: 10%;
   box-sizing: content-box;
+  position: relative;
+
 }
 
 .cardImgPannel__img:hover {
@@ -135,6 +139,7 @@
   transition: 0.25s;
   cursor: pointer;
 }
+
 
 .fa-angle-down,
 .fa-angle-up{
@@ -147,7 +152,6 @@
   transition: 0.25s;
 
 }
-
 
 @media screen and (max-width: 500px) and (min-width: 380px) {
   .card__arrow_pole {

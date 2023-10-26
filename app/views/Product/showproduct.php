@@ -10,12 +10,15 @@
                         <?php
                         if (!is_null($data['url'])) :
                             $data['url'] = explode(',', $data['url']);
-                            foreach ($data['url'] as $url) :
+                            
+                            foreach ($data['url'] as $key => $url) :
+                                // dump ($key );
                         ?>
-                                <img class="cardImgPannel__img" src="<?= UPLOADS . '\\' . $url ?>" alt="images_product">
-                            <?php
+                                <img onclick = "showSlide(<?= $key ?>)" class="cardImgPannel__img" src="<?= UPLOADS . '\\' . $url ?>" alt="images_product">
+                           <?php
                             endforeach;
                             ?>
+                            <div class="imgPanel"></div>
                     </div>
                 </div>
                 <i class="next fa fa-3x fa-angle-down" aria-hidden="true"></i>
