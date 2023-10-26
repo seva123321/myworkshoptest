@@ -360,7 +360,7 @@ function showSlide(number,cardNumber)
   })
     // находим все точки, /выбираем нужную по ее индексу, /добавляем класс active
     PANELDOTTED[cardNumber].querySelectorAll('.sliderDotted__dotted')[number].classList.add('active')
-    TEST[cardNumber].style.transform =`translateX(-${number*100}%)`
+    TEST[cardNumber].style.transform =`translate3d(-${number*100}%, 0px, 0px)`
   }
  
   CATALOG.addEventListener('mouseover',function(Event){

@@ -80,8 +80,10 @@ let slider = document.querySelector(".card__pole"),
   prevTrf = 0,
   lastTrf = --slides.length * slideWidth,
   posThreshold = slides[0].offsetWidth * 0.35,
-  trfRegExp = /([-0-9.]+(?=px))/,
-  getEvent = function () {
+  trfRegExp = /([-0-9.]+(?=px))/
+  prev.classList.toggle("disabled", slideIndex === 0);
+
+  let getEvent = function () {
     return event.type.search("touch") !== -1 ? event.touches[0] : event;
   },
   slide = function () {
@@ -223,7 +225,6 @@ let slider = document.querySelector(".card__pole"),
     allowSwipe = true;
   };
 
-prev.classList.toggle("disabled", slideIndex === 0);
 
 sliderTrack.style.transform = "translate3d(0px, 0px, 0px)";
 sliderList.classList.add("grab");
@@ -243,14 +244,7 @@ arrows.addEventListener("click", function () {
   } else {
     return;
   }
-
-
-
-
-  // if ( (slideIndex >= 0) || (slideIndex <= --slides.length) ) {
-  // }
-    slide();
-  
+    slide(); 
 });
 
 
@@ -263,7 +257,7 @@ let  sliderTrackVert = slider.querySelector(".card__imgPannel"),
   transitionVert = true,
   slideHeight = slidesVert[0].offsetHeight   /*offsetWidth*/,
   slideIndexVert = 0 
-  
+  prevVert.classList.toggle("disabled", slideIndexVert === 0);
 
   arrowsVert.addEventListener("click", function (Event) {
   let target = Event.target;
