@@ -235,21 +235,21 @@
 }
 
 .b-itemDel{
-
+  user-select: none;
 }
 
-.fa-remove {
+.fa-times {
   color: #606060;
   font-weight: 300;
-  font-family: "Lato";
   transition: var(--tran);
+  cursor: pointer;
 }
 
-.fa-remove:hover {
+.fa-times:hover {
   transform: scale(1.2);
 }
 
-.fa-remove:active {
+.fa-times:active {
   color: #303030;
 }
 

@@ -5,7 +5,9 @@
     </div>
 
 
-
+    <?php
+       dump($data);
+    ?>
     <div class="basket_grid ">
         <div class="b-itemHeader">
             <div class="head_item b-item_1">Фото</div>
@@ -120,10 +122,8 @@
             </div>
 
             <div class="basket__item b-itemCost">3800 руб.</div>
-            <div class="basket__item b-itemDel btn">
-               <!-- <i class="fa-solid fa-2x fa-trash"></i> -->
-                <i class="fa fa-2x fa-remove" ></i>
-                <!-- <i class="fa-regular fa-square-minus"></i> -->
+            <div class="basket__item b-itemDel">
+                <i class="fa fa-2x fa-times" aria-hidden="true"></i>        
             </div>
         </div>
     </template>

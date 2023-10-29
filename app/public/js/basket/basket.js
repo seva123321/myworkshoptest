@@ -102,7 +102,8 @@ function renderBasket(data)
     {
       // if (data[id] && !getProduct) {
         data.forEach(function (product, index) {
-            console.log(STORAGE[product.idProductShop]);
+            // console.log(STORAGE[product.idProductShop]);
+            console.log(product);
             let clone = document.querySelector("#gridRow").content.querySelector(".gridRow").cloneNode(true);
           // console.log(product.idProductShop);
             clone.querySelector(".basket__itemName").querySelector(".item_name").textContent = product.name;
@@ -145,7 +146,7 @@ function renderBasket(data)
 
 
       // удаление в корзине DELETE
-        if (target.classList.contains("fa-remove")) {
+        if (target.classList.contains("fa-times")) {
           // если элемент найден на страничке/ удалить из хранилища
             if (id) {
                 delete STORAGE[id];
@@ -241,7 +242,7 @@ function renderBasket(data)
 // удаление в корзине
 GRID.addEventListener("click", function (Event) {
     let target = Event.target;
-    let id = target.closest(".p-item") ? .getAttribute("data-product");
+    let id = target.closest(".p-item")?.getAttribute("data-product");
 
     if (target.classList.contains("fa-trash")) {
       //console.log(id);

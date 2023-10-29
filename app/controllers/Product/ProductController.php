@@ -32,7 +32,7 @@ class ProductController extends Controller
         $this->view->AddJS('productCard/productCard.js');
         $data = $this->model->getProduct((int)$id);
         $this->view->render($data);
-    }
+    } 
 
     public function getBasket(): void
     {
@@ -42,10 +42,15 @@ class ProductController extends Controller
       // из массива в строку 1,2,3,4
         $ids = implode(',', $data);
         $response = $this->model->getBasket($ids);
+        //  dump($response);
         echo json_encode($response);
+
+      // $data = $this->model->getProducts();
+      // // dump($data);
+      // $this->view->render($data);
     }
 
-
+    
     public function basket(): void
     {
         extract($this->variables);

@@ -18,6 +18,8 @@ Router::addUrl('/product/id/{id}', 'Product', 'showProduct');
 Router::addUrl('/product/id/{id}/test/{test}', 'Product', 'showProduct2');
 Router::addUrl('/create', 'User', 'create');
 Router::addUrl('/admin/panel', 'User', 'admin');
+// Router::addUrl('/getProducts', 'Product', 'getBasketProduct');
+
 
 // POST OR GET OR PUT ....
 Router::addRequest('/catalog/basket', 'Product', 'basket');
